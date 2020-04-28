@@ -10,8 +10,7 @@ base.py
 
 windows.py
 ----------
- - replace ``MSS.srcdc`` with ``MSS.srcdc_dict``
- - add a threading lock ``MSS._lock``
+ - Replaced ``MSS.srcdc`` with ``MSS.srcdc_dict``
 
 
 5.0.0 (2019-12-31)

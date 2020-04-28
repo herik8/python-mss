@@ -74,9 +74,11 @@ class MSS(MSSBase):
     # Class attributes instanced one time to prevent resource leaks.
     bmp = None
     memdc = None
-    # a dict to maintain srcdc values created by multiple threads.
+
+    # A dict to maintain *srcdc* values created by multiple threads.
     srcdc_dict = {}
-    # a threading lock to lock resources(bmp/memdc/srcdc) inside grab method.
+
+    # A threading lock to lock resources(bmp/memdc/srcdc) inside .grab() method.
     _lock = threading.Lock()
 
     def __init__(self, **_):
@@ -179,10 +181,13 @@ class MSS(MSSBase):
             self.user32.SetProcessDPIAware()
 
     def _get_srcdc(self):
-        # Fix thread unsafe issue:
-        # In multithreading, if the thread who creates srcdc is died, srcdc is no longer valid to grab screen.
-        # The srcdc attribute is replaced with srcdc_dict to maintain the srcdc values in multithreading
-        # Since current thread and main thread is always alive, reuse their srcdc value first.
+        """
+        Retrieve a thread-safe HDC from GetWindowDC().
+        In multithreading, if the thread who creates *srcdc* is dead, *srcdc* will
+        no longer be valid to grab the screen. The *srcdc* attribute is replaced
+        with *srcdc_dict* to maintain the *srcdc* values in multithreading.
+        Since the current thread and main thread are always alive, reuse their *srcdc* value first.
+        """
         cur_thread, main_thread = threading.current_thread(), threading.main_thread()
         srcdc = MSS.srcdc_dict.get(cur_thread) or MSS.srcdc_dict.get(main_thread)
         if not srcdc:
