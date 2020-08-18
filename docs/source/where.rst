@@ -12,6 +12,7 @@ AI, Computer Vison
 - `DeepEye <https://github.com/thayerAlshaabi/DeepEye>`_, a deep vision-based software library for autonomous and advanced driver-assistance systems;
 - `DoomPy <https://github.com/WNoxchi/DoomPy>`_ (Autonomous Anti-Demonic Combat Algorithms);
 - `Europilot <https://github.com/jsistla/eu-pilot>`_, a self-driving algorithm using Euro Truck Simulator (ETS2);
+- `goreviewpartner <https://github.com/pnprog/goreviewpartner>`_,  a tool to help analyse and review your game of go (weiqi, baduk) using strong bots.
 - `gym-mupen64plus <https://github.com/bzier/gym-mupen64plus>`_, an OpenAI Gym environment wrapper for the Mupen64Plus N64 emulator;
 - `Open Source Self Driving Car Initiative <https://github.com/OSSDC/OSSDC-VisionBasedACC>`_;
 - `PUBGIS <https://github.com/andrewzwicky/PUBGIS>`_, a map generator of your position throughout PUBG gameplay;
